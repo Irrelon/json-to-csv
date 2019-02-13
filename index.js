@@ -1,13 +1,21 @@
 const files = process.argv.slice(2);
+
+if (!files.length) {
+	console.log('Please provide the path to your field definition .js file!');
+	process.exit(1);
+}
+
+const fieldsDefinitionFile = files.shift();
+
+if (!files.length) {
+	console.log('Please provide a path to at least one JSON file!');
+	process.exit(1);
+}
+
 const fs = require('fs');
 const Path = require('irrelon-path');
 const pathSolver = new Path();
-const fields = require('./fields');
-
-if (!files.length) {
-	console.log('Please provide a path to at least one file!');
-	process.exit(1);
-}
+const fields = require(fieldsDefinitionFile);
 
 const fileData = files.map((filePath) => {
 	return require(filePath);

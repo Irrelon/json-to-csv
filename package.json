@@ -1,5 +1,5 @@
 {
-  "name": "json-to-csv",
+  "name": "irrelon-json-to-csv",
   "version": "1.0.0",
   "description": "Converts one or more JSON files to CSV files based on dot notation paths to data.",
   "main": "index.js",
